@@ -9,7 +9,7 @@ class Game(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(name="Ping")
     async def ping(self, ctx):
         await ctx.send('Pong!')
 

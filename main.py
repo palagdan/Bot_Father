@@ -7,19 +7,40 @@ import json
 import random
 from itertools import cycle
 
-TOKEN = 'OTY3MTA5OTc3OTc2MjM4MDgx.YmLhWg.orW16i7bV9_-2kPQiu5BlIeRpSU'
+from cogs.HelpCog import HelpCog
+
+TOKEN = 'OTY3MTA5OTc3OTc2MjM4MDgx.YmLhWg.-yrig0ceFXm760pc--q1zq5k-2k'
+
+# --------------------Custom class for command help---------------------------#
+# class CustomHelper(commands.HelpCommand):
+#     def __int__(self):
+#         super().__init__()
+#
+#     async def send_bot_help(self, mapping):
+#         for cog in mapping:
+#             await self.get_destination().send(f'{cog.qualified_name()}: {[command.name for command in mapping[cog]]}')
+#
+# async def send_cog_help(self, cog): return self.get_destination().send(f'{cog.qualified_name}: {[command.name for
+# command in cog.get_commands()]}')
+#
+#     async def send_group_help(self, group):
+#         return self.get_destination().send(
+#             f'{group.qualified_name}: {[command.name for index, command in enumerate(group.commands)]}')
+#
+#     async def send_command_help(self, command):
+#         await self.get_destination().send(command.name)
+
 
 client = commands.Bot(command_prefix='/')
+# ------------------load new cog---------------------#
+# @client.command(name="first_command")
+# async def load(ctx, extension):
+#     client.load_extension(f'cogs.{extension}')
 
-
-@client.command(name="first_command")
-async def load(ctx, extension):
-    client.load_extension(f'cogs.{extension}')
-
-
-@client.command()
-async def unload(ctx, extension):
-    client.unload_extension(f'cogs.{extension}')
+# ------------------unload cog---------------------#
+# @client.command()
+# async def unload(ctx, extension):
+#     client.unload_extension(f'cogs.{extension}')
 
 
 for filename in os.listdir('./cogs'):
